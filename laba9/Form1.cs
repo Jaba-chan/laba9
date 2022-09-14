@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,6 +19,7 @@ namespace laba9
         {
             return 9 * (x + 15 * Math.Pow(Math.Pow(x, 3) + Math.Pow(b, 3), 1 / 2));
         }
+       
         public Form1()
         {
             InitializeComponent();
@@ -44,8 +46,6 @@ namespace laba9
             for (int i = 0; i < step; i++)
             {
                 x_array[i] = x0 + delta*i;
-                Debug.WriteLine(delta);
-                Debug.WriteLine(x_array[i]);
                 y_array[i] = f(x_array[i], b);
             }
             chart1.ChartAreas[0].AxisX.Minimum = x0;
@@ -54,5 +54,7 @@ namespace laba9
             chart1.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             chart1.Series[0].Points.DataBindXY(x_array, y_array);
         }
+
+     
     }
 }
